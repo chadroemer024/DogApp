@@ -89,37 +89,6 @@ namespace DogApp.Controllers
             return Ok("Succesfully Created.");
         }
 
-        /*[HttpPut("Update Dog Information")] //{reviewerId}
-        [ProducesResponseType(204)]
-        [ProducesResponseType(400)]
-        [ProducesResponseType(404)] //for update, have a not found response
-
-        public IActionResult UpdateDog(int dogId,
-             [FromBody] DogDTO updatedDog)
-        {
-            if (updatedDog == null)
-                return BadRequest(ModelState);
-
-            if (dogId != updatedDog.Id)
-                return BadRequest(ModelState);
-
-            if (!_dogRepository.DogExists(dogId))
-                return NotFound();
-
-            if (!ModelState.IsValid)
-                return BadRequest();
-
-          //  var dogFK = dogId.CurrentOwnerId;
-            var dogMap = _mapper.Map<Dog>(updatedDog);
-
-            if (!_dogRepository.UpdateDog(dogMap))
-            {
-                ModelState.AddModelError("", "Something went wrong updating dog info....");
-                return StatusCode(500, ModelState);
-            }
-            return NoContent();
-        }*/
-
         [HttpDelete("Delete dog from table")] //{reviewerId}
         [ProducesResponseType(204)]
         [ProducesResponseType(400)]

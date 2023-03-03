@@ -14,8 +14,5 @@ namespace DogApp.Helper
             CreateMap<DogDTO, Dog>();
         }
         
-
-
-
     }
 }

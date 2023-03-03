@@ -13,9 +13,9 @@ builder.Services.AddControllers();
 builder.Services.AddControllers().AddJsonOptions(x =>
   x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
 builder.Services.AddTransient<Seed>(); //this is nice to have if you don't have any data to play with for testing purposes (prior to post/put methods)
-builder.Services.AddScoped<IPersonRepository, PersonRepository>();       //NEED this so the controller can see the interface/repository
+builder.Services.AddScoped<IPersonRepository, PersonRepository>();       //need this so the controller can see the interface/repository
 builder.Services.AddScoped<IDogRepository, DogRepository>();
-builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); //NEED this if using AutoMapper (maps fields to SQL data records automatically)
+builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); //need this if using AutoMapper (maps fields to SQL data records automatically)
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

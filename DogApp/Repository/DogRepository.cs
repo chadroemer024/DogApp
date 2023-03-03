@@ -15,14 +15,7 @@ namespace DogApp.Repository
 
         public bool CreateDog( Dog dog)
         {
-            /*ar personEntity = _context.People.Where(p => p.Id == personId).FirstOrDefault();
-            var dogOwner = new Person()
-            {
-                Dogs = dog,
-
-            };*/
-            //_context.Add(dogOwner);
-
+            
             _context.Add(dog);
             return Save();
         }
@@ -49,11 +42,7 @@ namespace DogApp.Repository
             return _context.Dogs.Where(d => d.Id == dogId).FirstOrDefault();
         }
 
-        /*public ICollection<Person> GetDogByOwner(int personId)
-        {
-            return _context.Dogs.Where(o => o.CurrentOwnerId == personId).Select(c => c.CurrentOwner).ToList();
-        }*/
-
+       
         public ICollection<Dog> GetDogs() //simple list of all dogs, display ToList
         {
             return _context.Dogs.ToList();
@@ -65,10 +54,6 @@ namespace DogApp.Repository
             return saved > 0 ? true : false;
         }
 
-        /*public bool UpdateDog( Dog dog)
-        {
-            _context.Update(dog);
-            return Save();
-        }*/
+       
     }
 }

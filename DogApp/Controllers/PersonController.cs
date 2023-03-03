@@ -11,7 +11,7 @@ namespace DogApp.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
-    public class PersonController : Controller //MAKE SURE U INHERIT CONTROLLER
+    public class PersonController : Controller //inherit controller
     {
         private readonly IPersonRepository _personRepository;
         private readonly IDogRepository _dogRepository;
@@ -59,9 +59,6 @@ namespace DogApp.Controllers
         [ProducesResponseType(400)]
         public IActionResult GetOwnerOfADog(int dogId) //this method, when called, will display the specific personID entered.
         {
-            //if (!_dogRepository.DogExists(dogId)) //if no data found in personId after action, not found
-            //   return NotFound();
-
             var dog = _mapper.Map<PersonDTO>(_personRepository.GetOwnerOfADog(dogId)); //variable to autoMap data from the found ID to display DTO fields
 
             if (!ModelState.IsValid)
@@ -94,8 +91,6 @@ namespace DogApp.Controllers
             if (personCreate == null)
                 return BadRequest(ModelState);
 
-            //  var ownerMap = _mapper.Map<OwnerDTO>(ownerCreate);
-
             var people = _personRepository.GetPeople()
                  .Where(c => c.LastName.Trim().ToUpper() == personCreate.LastName.TrimEnd().ToUpper())
                  .FirstOrDefault();
@@ -111,7 +106,7 @@ namespace DogApp.Controllers
                 return BadRequest(ModelState);
 
             var personMap = _mapper.Map<Person>(personCreate);
-            //reviewerMap = _reviewerRepository.GetReviewer(reviewerId);
+           
 
             if (!_personRepository.CreatePerson(personMap))
             {
