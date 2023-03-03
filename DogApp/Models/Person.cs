@@ -8,6 +8,6 @@
         public int Age { get; set; }
 
         public ICollection<Dog> Dogs { get; set; }
-       }
+       
     }
 }
